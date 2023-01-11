@@ -35,8 +35,10 @@ def showBlockedWebsites():
         r = r + 1
 
 def handleBlock():
-    blockWebsite(input1.get(1.0, END))
-    showBlockedWebsites()
+    res = messagebox.askquestion("Block " + input1.get(1.0, END), "Are you sure?")
+    if res == 'yes':
+        blockWebsite(input1.get(1.0, END))
+        showBlockedWebsites()
 
 def handleUnblock(website):
     if len(labels_reference) and len(button_reference):
@@ -48,6 +50,7 @@ def handleUnblock(website):
         del button_reference[:]
         removeFromBlocklist(website)
         showBlockedWebsites()
+    messagebox.showinfo("success", website + " is unblocked.")
 
 showBlockedWebsites()
 

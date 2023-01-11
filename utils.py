@@ -16,7 +16,6 @@ def blockWebsite(website):
                 break
         if in_block_list is False:
             host_file.write(website_path)
-            messagebox.showinfo("success", website + ' is blocked')
         else:
             messagebox.showinfo("", website + ' is already in block list')
         
