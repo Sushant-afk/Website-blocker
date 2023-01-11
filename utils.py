@@ -32,7 +32,7 @@ def getBlockedWebsites():
 def removeFromBlocklist(website):
     website = website.strip('\n')
     website_path = ip_address + ' ' + website
-    # print(website_path)
+    print(website_path, len(website_path))
     with open(host_path, 'r+') as host_file:
         lines = host_file.readlines()
         host_file.seek(0)
