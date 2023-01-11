@@ -28,3 +28,17 @@ def getBlockedWebsites():
             if len(line) > 10 and line[:9] == ip_address:
                 list.append(line[10:].strip('\n'))
     return list
+
+def removeFromBlocklist(website):
+    website = website.strip('\n')
+    website_path = ip_address + ' ' + website
+    # print(website_path)
+    with open(host_path, 'r+') as host_file:
+        lines = host_file.readlines()
+        host_file.seek(0)
+        for line in lines:
+            if line.strip('\n') != website_path:
+                host_file.write(line)
+            else:
+                pass
+        host_file.truncate()
